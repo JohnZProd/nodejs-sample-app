@@ -12,6 +12,11 @@ jobs:
             sudo apt-get -y -qq update
             sudo apt-get install python3-pip python3-dev build-essential
             sudo pip3 install awsebcli
+      - run:
+          name: Deploy
+          command: |
+            eb init docker --region ap-southeast-2 --platform docker
+            eb deploy
 
 workflows:
   final:
